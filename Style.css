@@ -1,0 +1,98 @@
+body{
+    background-color: #666464;
+    background-image: url("Jdm login page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar:hover
+{
+    background-color:transparent;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    background-color: transparent;
+}
+li{
+    float: left;
+}
+li a{
+
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+li a:hover{
+    background-color: rgba(185, 134, 134, 0.459);
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+img
+{
+    padding-left:40% ;
+  
+}
+    a.button
+    {
+        background-color: rgba(167, 159, 159, 0.438);
+        color: rgba(37, 37, 37, 0.644);
+        padding: 14px 20px;
+        margin-left: 40%;
+        cursor: pointer;
+        border: none;
+        cursor: pointer;
+        opacity: 0.9;
+        border-radius: 20px;
+        box-sizing: border-box;
+        transition: background-position 0.5s ease;
+    }
+    button:hover{
+        background-color: rgba(185, 134, 134, 0.438);
+        color: rgb(255, 255, 255);
+        border-radius: 20px;
+        transition: 0.50s;
+    }
+    .login
+{  
+    border-radius: 50%;
+    text-align: center;
+
+}
+.login input
+{
+    color:#666464b0;
+    background-color: transparent;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: background-position 0.5s ease;
+}
+.login input:hover
+{
+    background-color: rgba(185, 134, 134, 0.438);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: 0.50s;
+}
+.loginBorder
+{
+  border: 2px solid rgba(185, 134, 134, 0.842);
+  background-color: rgba(185, 134, 134, 0.842);
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10%;
+  border-radius: 20px;
+  transition: 0.50s;
+  box-sizing: border-box;
+}
