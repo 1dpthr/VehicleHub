@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="navbar admin-navbar">
+        <div class="admin-logo">🚗 VehicleHub Admin</div>
+        <ul class="admin-nav-links">
+            <li><a href="admin.html" class="active">Dashboard</a></li>
+            <li><a href="admin-users.html">Users</a></li>
+            <li><a href="admin-vehicles.html">Vehicles</a></li>
+            <li><a href="admin-inquiries.html">Inquiries</a></li>
+            <li><a href="admin-listings.html">Listings</a></li>
+            <li><a href="homePage.html">View Site</a></li>
+            <li><a href="#" onclick="adminLogout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="admin-main">
+        <div class="admin-container">
+            <h1>Admin Dashboard</h1>
+            
+            <!-- Stats Overview -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">👥</span>
+                    <div class="stat-details">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🚗</span>
+                    <div class="stat-details">
+                        <h3 id="totalCars">0</h3>
+                        <p>Cars Listed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🏍️</span>
+                    <div class="stat-details">
+                        <h3 id="totalBikes">0</h3>
+                        <p>Bikes Listed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">📬</span>
+                    <div class="stat-details">
+                        <h3 id="totalInquiries">0</h3>
+                        <p>Inquiries</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="admin-section">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="showAddUserModal()">
+                        <span>👤</span> Add User
+                    </button>
+                    <button class="action-btn" onclick="showAddVehicleModal()">
+                        <span>🚗</span> Add Vehicle
+                    </button>
+                    <button class="action-btn" onclick="exportData()">
+                        <span>📊</span> Export Data
+                    </button>
+                    <button class="action-btn" onclick="clearCache()">
+                        <span>🗑️</span> Clear Cache
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Users -->
+            <div class="admin-section">
+                <h2>Recent Users</h2>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recent Inquiries -->
+            <div class="admin-section">
+                <h2>Recent Inquiries</h2>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiriesTableBody">
+                            <!-- Inquiries loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- System Info -->
+            <div class="admin-section">
+                <h2>System Information</h2>
+                <div class="system-info">
+                    <div class="info-item">
+                        <span class="info-label">Platform:</span>
+                        <span class="info-value">VehicleHub v2.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Database:</span>
+                        <span class="info-value">MongoDB (Local)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Storage:</span>
+                        <span class="info-value">LocalStorage + MongoDB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value status-online">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('addUserModal')">&times;</button>
+            <h2>Add New User</h2>
+            <form id="addUserForm" onsubmit="addUser(event)">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="newUsername" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="newUserEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="newUserPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select id="newUserRole">
+                        <option value="user">User</option>
+                        <option value="dealer">Dealer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Vehicle Modal -->
+    <div id="addVehicleModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('addVehicleModal')">&times;</button>
+            <h2>Add New Vehicle</h2>
+            <form id="addVehicleForm" onsubmit="addVehicle(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="vehicleType" required>
+                            <option value="car">Car</option>
+                            <option value="bike">Bike</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Make</label>
+                        <input type="text" id="vehicleMake" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Model</label>
+                        <input type="text" id="vehicleModel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="number" id="vehicleYear" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (Rs.)</label>
+                        <input type="number" id="vehiclePrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mileage</label>
+                        <input type="number" id="vehicleMileage" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="vehicleDescription" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Add Vehicle</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="admin-footer">
+        <p>© 2024 VehicleHub Admin Panel</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Admin credentials (in production, use proper authentication)
+        const ADMIN_CREDENTIALS = {
+            email: 'admin@vehiclehub.com',
+            password: 'admin123'
+        };
+
+        // Check admin access
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminUser = JSON.parse(localStorage.getItem('vehiclehub_admin') || 'null');
+            
+            if (!adminUser || adminUser.role !== 'admin') {
+                // Redirect to admin login page
+                window.location.href = 'admin-login.html';
+                return;
+            }
+            
+            loadAdminData();
+        });
+
+        function loadAdminData() {
+            // Load users
+            const users = JSON.parse(localStorage.getItem('vehiclehub_users') || '[]');
+            document.getElementById('totalUsers').textContent = users.length;
+            
+            // Load vehicles count
+            const carsCount = vehicles.cars.length;
+            const bikesCount = vehicles.bikes.length;
+            document.getElementById('totalCars').textContent = carsCount;
+            document.getElementById('totalBikes').textContent = bikesCount;
+            
+            // Load inquiries
+            const inquiries = JSON.parse(localStorage.getItem('vehiclehub_inquiries') || '[]');
+            document.getElementById('totalInquiries').textContent = inquiries.length;
+            
+            // Populate users table
+            const usersTable = document.getElementById('usersTableBody');
+            usersTable.innerHTML = users.slice(-5).reverse().map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <button class="table-btn edit" onclick="editUser(${user.id})">Edit</button>
+                        <button class="table-btn delete" onclick="deleteUser(${user.id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="5">No users found</td></tr>';
+            
+            // Populate inquiries table
+            const inquiriesTable = document.getElementById('inquiriesTableBody');
+            inquiriesTable.innerHTML = inquiries.slice(-5).reverse().map(inquiry => `
+                <tr>
+                    <td>${inquiry.id}</td>
+                    <td>${inquiry.name}</td>
+                    <td>${inquiry.email}</td>
+                    <td>${inquiry.message.substring(0, 30)}...</td>
+                    <td>${new Date(inquiry.date).toLocaleDateString()}</td>
+                    <td>
+                        <button class="table-btn view" onclick="viewInquiry(${inquiry.id})">View</button>
+                        <button class="table-btn delete" onclick="deleteInquiry(${inquiry.id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="6">No inquiries found</td></tr>';
+        }
+
+        function showAddUserModal() {
+            document.getElementById('addUserModal').style.display = 'flex';
+        }
+
+        function showAddVehicleModal() {
+            document.getElementById('addVehicleModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function addUser(event) {
+            event.preventDefault();
+            const users = JSON.parse(localStorage.getItem('vehiclehub_users') || '[]');
+            
+            const newUser = {
+                id: Date.now(),
+                username: document.getElementById('newUsername').value,
+                email: document.getElementById('newUserEmail').value,
+                password: document.getElementById('newUserPassword').value,
+                role: document.getElementById('newUserRole').value,
+                createdAt: new Date().toISOString()
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('vehiclehub_users', JSON.stringify(users));
+            
+            closeModal('addUserModal');
+            showNotification('User added successfully!');
+            loadAdminData();
+        }
+
+        function addVehicle(event) {
+            event.preventDefault();
+            const isCar = document.getElementById('vehicleType').value === 'car';
+            const vehicle = {
+                id: isCar ? 'admin-' + Date.now() : 'admin-bike-' + Date.now(),
+                make: document.getElementById('vehicleMake').value,
+                model: document.getElementById('vehicleModel').value,
+                year: parseInt(document.getElementById('vehicleYear').value),
+                price: parseInt(document.getElementById('vehiclePrice').value),
+                mileage: parseInt(document.getElementById('vehicleMileage').value),
+                description: document.getElementById('vehicleDescription').value,
+                image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
+                thumbnail: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop',
+                fuel: 'Petrol',
+                transmission: isCar ? 'Manual' : '',
+                engine: isCar ? '1300cc' : '150cc',
+                color: 'White',
+                location: 'Lahore',
+                condition: 'Used',
+                features: ['Air Conditioning', 'Power Steering'],
+                postedDate: new Date().toISOString().split('T')[0]
+            };
+            
+            if (isCar) {
+                vehicles.cars.push(vehicle);
+            } else {
+                vehicles.bikes.push(vehicle);
+            }
+            
+            closeModal('addVehicleModal');
+            showNotification('Vehicle added successfully!');
+            loadAdminData();
+        }
+
+        function editUser(userId) {
+            showNotification('Edit user feature coming soon!', 'info');
+        }
+
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                let users = JSON.parse(localStorage.getItem('vehiclehub_users') || '[]');
+                users = users.filter(u => u.id !== userId);
+                localStorage.setItem('vehiclehub_users', JSON.stringify(users));
+                showNotification('User deleted successfully!');
+                loadAdminData();
+            }
+        }
+
+        function viewInquiry(inquiryId) {
+            const inquiries = JSON.parse(localStorage.getItem('vehiclehub_inquiries') || '[]');
+            const inquiry = inquiries.find(i => i.id === inquiryId);
+            if (inquiry) {
+                alert(`Inquiry Details:\n\nName: ${inquiry.name}\nEmail: ${inquiry.email}\nPhone: ${inquiry.phone}\nMessage: ${inquiry.message}`);
+            }
+        }
+
+        function deleteInquiry(inquiryId) {
+            if (confirm('Are you sure you want to delete this inquiry?')) {
+                let inquiries = JSON.parse(localStorage.getItem('vehiclehub_inquiries') || '[]');
+                inquiries = inquiries.filter(i => i.id !== inquiryId);
+                localStorage.setItem('vehiclehub_inquiries', JSON.stringify(inquiries));
+                showNotification('Inquiry deleted successfully!');
+                loadAdminData();
+            }
+        }
+
+        function exportData() {
+            const data = {
+                users: JSON.parse(localStorage.getItem('vehiclehub_users') || '[]'),
+                inquiries: JSON.parse(localStorage.getItem('vehiclehub_inquiries') || '[]'),
+                vehicles: vehicles,
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'vehiclehub-data.json';
+            a.click();
+            
+            showNotification('Data exported successfully!');
+        }
+
+        function clearCache() {
+            if (confirm('Are you sure you want to clear all cached data? This cannot be undone.')) {
+                localStorage.clear();
+                showNotification('Cache cleared successfully!');
+                loadAdminData();
+            }
+        }
+
+        function adminLogout() {
+            localStorage.removeItem('vehiclehub_admin');
+            window.location.href = 'homePage.html';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
+

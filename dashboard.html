@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="user-profile">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" class="user-avatar">
+                    <h3 id="userName">User Name</h3>
+                    <p id="userEmail">user@email.com</p>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#overview" class="nav-item active" onclick="showTab('overview')">
+                        <span class="icon">📊</span> Overview
+                    </a>
+                    <a href="#wishlist" class="nav-item" onclick="showTab('wishlist')">
+                        <span class="icon">❤️</span> Wishlist <span class="badge" id="wishlistBadge">0</span>
+                    </a>
+                    <a href="#inquiries" class="nav-item" onclick="showTab('inquiries')">
+                        <span class="icon">📬</span> My Inquiries <span class="badge" id="inquiryBadge">0</span>
+                    </a>
+                    <a href="#listings" class="nav-item" onclick="showTab('listings')">
+                        <span class="icon">🚗</span> My Listings
+                    </a>
+                    <a href="#settings" class="nav-item" onclick="showTab('settings')">
+                        <span class="icon">⚙️</span> Settings
+                    </a>
+                    <a href="#" class="nav-item logout" onclick="handleLogout()">
+                        <span class="icon">🚪</span> Logout
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="dashboard-content">
+                <!-- Overview Tab -->
+                <section id="overview" class="tab-content active">
+                    <h1>Welcome back, <span id="welcomeName">User</span>!</h1>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-icon">❤️</span>
+                            <div class="stat-info">
+                                <h3 id="wishlistCount">0</h3>
+                                <p>Saved Vehicles</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">📬</span>
+                            <div class="stat-info">
+                                <h3 id="inquiryCount">0</h3>
+                                <p>Active Inquiries</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">🚗</span>
+                            <div class="stat-info">
+                                <h3>0</h3>
+                                <p>My Listings</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">🔔</span>
+                            <div class="stat-info">
+                                <h3>0</h3>
+                                <p>Notifications</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h2>Quick Actions</h2>
+                        <div class="actions-grid">
+                            <a href="sell-vehicle.html" class="action-card">
+                                <span class="action-icon">➕</span>
+                                <span>List Vehicle</span>
+                            </a>
+                            <a href="contact.html" class="action-card">
+                                <span class="action-icon">📞</span>
+                                <span>Contact Support</span>
+                            </a>
+                            <a href="homePage.html" class="action-card">
+                                <span class="action-icon">🔍</span>
+                                <span>Browse Vehicles</span>
+                            </a>
+                            <a href="News.html" class="action-card">
+                                <span class="action-icon">📰</span>
+                                <span>Read News</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-list" id="activityList">
+                            <div class="activity-item">
+                                <span class="activity-icon">📝</span>
+                                <div class="activity-info">
+                                    <p>Welcome to VehicleHub! Start exploring vehicles or list your own.</p>
+                                    <span class="activity-time">Just now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wishlist Tab -->
+                <section id="wishlist" class="tab-content">
+                    <h1>My Wishlist</h1>
+                    <div class="wishlist-grid" id="wishlistGrid">
+                        <!-- Wishlist items will be loaded here -->
+                    </div>
+                    <div class="empty-state" id="emptyWishlist">
+                        <span class="empty-icon">❤️</span>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Save vehicles you're interested in by clicking the heart icon</p>
+                        <a href="homePage.html" class="browse-btn">Browse Vehicles</a>
+                    </div>
+                </section>
+
+                <!-- Inquiries Tab -->
+                <section id="inquiries" class="tab-content">
+                    <h1>My Inquiries</h1>
+                    <div class="inquiries-list" id="inquiriesList">
+                        <!-- Inquiries will be loaded here -->
+                    </div>
+                    <div class="empty-state" id="emptyInquiries">
+                        <span class="empty-icon">📬</span>
+                        <h3>No inquiries yet</h3>
+                        <p>When you inquire about a vehicle, it will appear here</p>
+                        <a href="homePage.html" class="browse-btn">Browse Vehicles</a>
+                    </div>
+                </section>
+
+                <!-- Listings Tab -->
+                <section id="listings" class="tab-content">
+                    <h1>My Listings</h1>
+                    <div class="listings-header">
+                        <p>Manage your vehicle listings</p>
+                        <a href="sell-vehicle.html" class="add-listing-btn">+ Add New Listing</a>
+                    </div>
+                    <div class="empty-state" id="emptyListings">
+                        <span class="empty-icon">🚗</span>
+                        <h3>No listings yet</h3>
+                        <p>List your vehicle for sale and reach thousands of buyers</p>
+                        <a href="sell-vehicle.html" class="browse-btn">Create Listing</a>
+                    </div>
+                </section>
+
+                <!-- Settings Tab -->
+                <section id="settings" class="tab-content">
+                    <h1>Account Settings</h1>
+                    <form id="settingsForm" onsubmit="updateSettings(event)">
+                        <div class="settings-section">
+                            <h2>Profile Information</h2>
+                            <div class="form-group">
+                                <label for="settingsName">Full Name</label>
+                                <input type="text" id="settingsName" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsPhone">Phone Number</label>
+                                <input type="tel" id="settingsPhone" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsCity">City</label>
+                                <select id="settingsCity">
+                                    <option value="">Select City</option>
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                    <option value="Rawalpindi">Rawalpindi</option>
+                                    <option value="Faisalabad">Faisalabad</option>
+                                    <option value="Multan">Multan</option>
+                                    <option value="Peshawar">Peshawar</option>
+                                    <option value="Quetta">Quetta</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-section">
+                            <h2>Notification Preferences</h2>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="emailNotifications" checked>
+                                    <span>Email notifications for new listings</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="priceAlerts" checked>
+                                    <span>Price drop alerts</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="inquiryNotifications" checked>
+                                    <span>Inquiry notifications</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="save-settings-btn">Save Changes</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Dashboard functionality
+        function showTab(tabId) {
+            // Update nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.nav-item').classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            // Load tab data
+            if (tabId === 'wishlist') {
+                loadWishlist();
+            } else if (tabId === 'inquiries') {
+                loadInquiries();
+            }
+        }
+
+        function loadWishlist() {
+            const grid = document.getElementById('wishlistGrid');
+            const empty = document.getElementById('emptyWishlist');
+            const items = Wishlist.items;
+
+            document.getElementById('wishlistBadge').textContent = items.length;
+            document.getElementById('wishlistCount').textContent = items.length;
+
+            if (items.length === 0) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            let html = '';
+
+            items.forEach(item => {
+                const [type, id] = item.split('_');
+                const vehicle = type === 'cars' 
+                    ? vehicles.cars.find(v => v.id === id)
+                    : vehicles.bikes.find(v => v.id === id);
+
+                if (vehicle) {
+                    const detailsPage = type === 'cars' 
+                        ? `car-details-${vehicle.id}.html`
+                        : `bike-details.html?bike=${vehicle.id}`;
+
+                    html += `
+                        <div class="wishlist-item">
+                            <img src="${vehicle.thumbnail}" alt="${vehicle.make} ${vehicle.model}">
+                            <div class="wishlist-info">
+                                <h3>${vehicle.make} ${vehicle.model}</h3>
+                                <p class="price">${formatPrice(vehicle.price)}</p>
+                                <p class="year">${vehicle.year} • ${vehicle.mileage.toLocaleString()} km</p>
+                                <div class="wishlist-actions">
+                                    <a href="${detailsPage}" class="view-btn">View Details</a>
+                                    <button class="remove-btn" onclick="Wishlist.remove('${id}', '${type}'); loadWishlist();">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function loadInquiries() {
+            const list = document.getElementById('inquiriesList');
+            const empty = document.getElementById('emptyInquiries');
+            const inquiries = JSON.parse(localStorage.getItem('vehiclehub_inquiries') || '[]');
+
+            document.getElementById('inquiryBadge').textContent = inquiries.length;
+            document.getElementById('inquiryCount').textContent = inquiries.length;
+
+            if (inquiries.length === 0) {
+                list.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            let html = '';
+
+            inquiries.forEach(inquiry => {
+                let vehicleName = 'Vehicle';
+                if (inquiry.vehicleId) {
+                    const vehicle = vehicles.cars.find(v => v.id === inquiry.vehicleId) ||
+                                   vehicles.bikes.find(v => v.id === inquiry.vehicleId);
+                    if (vehicle) {
+                        vehicleName = `${vehicle.make} ${vehicle.model}`;
+                    }
+                }
+
+                html += `
+                    <div class="inquiry-item">
+                        <div class="inquiry-header">
+                            <h3>${vehicleName}</h3>
+                            <span class="inquiry-date">${formatDate(inquiry.date)}</span>
+                        </div>
+                        <div class="inquiry-details">
+                            <p><strong>Name:</strong> ${inquiry.name}</p>
+                            <p><strong>Email:</strong> ${inquiry.email}</p>
+                            <p><strong>Phone:</strong> ${inquiry.phone}</p>
+                            <p><strong>Message:</strong> ${inquiry.message}</p>
+                        </div>
+                        <span class="inquiry-status pending">Pending Response</span>
+                    </div>
+                `;
+            });
+
+            list.innerHTML = html;
+        }
+
+        function updateSettings(event) {
+            event.preventDefault();
+            const updates = {
+                name: document.getElementById('settingsName').value,
+                phone: document.getElementById('settingsPhone').value,
+                city: document.getElementById('settingsCity').value
+            };
+            
+            UserAuth.updateProfile(updates);
+        }
+
+        function handleLogout() {
+            UserAuth.logout();
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!UserAuth.currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Update user info
+            document.getElementById('userName').textContent = UserAuth.currentUser.username;
+            document.getElementById('userEmail').textContent = UserAuth.currentUser.email;
+            document.getElementById('welcomeName').textContent = UserAuth.currentUser.username;
+            document.getElementById('settingsName').value = UserAuth.currentUser.username || '';
+            document.getElementById('settingsPhone').value = UserAuth.currentUser.phone || '';
+
+            // Load initial data
+            loadWishlist();
+            loadInquiries();
+        });
+    </script>
+</body>
+</html>
+

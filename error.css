@@ -1,0 +1,249 @@
+/* 404 Error Page Styles */
+
+/* Error Main Container */
+.error-main {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.error-container {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.error-code {
+    font-size: 150px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #e94560 0%, #ff6b6b 50%, #c23a51 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.error-container h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.error-container > p {
+    color: #888;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Error Actions */
+.error-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #e94560 0%, #c23a51 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+}
+
+.back-btn {
+    padding: 15px 30px;
+    background: transparent;
+    border: 2px solid #4ecca3;
+    color: #4ecca3;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #4ecca3;
+    color: #1a1a2e;
+}
+
+/* Error Search */
+.error-search {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.error-search h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#errorSearchForm {
+    display: flex;
+    gap: 10px;
+}
+
+#errorSearchForm input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #333;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+}
+
+#errorSearchForm input::placeholder {
+    color: #666;
+}
+
+#errorSearchForm input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+#errorSearchForm button {
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #e94560 0%, #c23a51 100%);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#errorSearchForm button:hover {
+    transform: scale(1.05);
+}
+
+/* Error Links */
+.error-links h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 1px solid #333;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.quick-link:hover {
+    border-color: #e94560;
+    color: #e94560;
+    transform: translateY(-3px);
+}
+
+.link-icon {
+    font-size: 2rem;
+}
+
+/* Error Stats */
+.error-stats {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.error-stats > p {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e94560;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 100px;
+    }
+    
+    .error-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+    }
+    
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-row {
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    #errorSearchForm {
+        flex-direction: column;
+    }
+}
+

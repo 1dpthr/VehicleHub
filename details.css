@@ -1,0 +1,368 @@
+/* Details Page Styles */
+
+/* Car/Bike Details Container */
+.car-details,
+.bike-details {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Details Image */
+.details-image {
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.details-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Wishlist Button on Details */
+.details-image .wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.details-image .wishlist-btn:hover {
+    transform: scale(1.05);
+}
+
+.details-image .wishlist-btn.active {
+    background: #e94560;
+    color: #fff;
+}
+
+/* Details Header */
+.details-header {
+    margin-bottom: 25px;
+}
+
+.details-header h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.details-price {
+    color: #4ecca3;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Details Specifications Grid */
+.details-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.spec-item {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.spec-label {
+    display: block;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.spec-value {
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Details Sections */
+.details-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.details-section h2 {
+    color: #e94560;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.details-section p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* Features List */
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(194, 58, 81, 0.2) 100%);
+    color: #e94560;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(233, 69, 96, 0.3);
+}
+
+/* Inquiry Section */
+.inquiry-section {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border-radius: 15px;
+    border: 1px solid #333;
+    margin-bottom: 25px;
+}
+
+.inquiry-section h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.inquiry-btn {
+    display: inline-block;
+    padding: 16px 50px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.inquiry-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #e94560;
+    color: #e94560;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: #e94560;
+    color: #fff;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.browse-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.browse-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .car-details,
+    .bike-details {
+        padding: 20px 15px;
+    }
+    
+    .details-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .details-price {
+        font-size: 1.4rem;
+    }
+    
+    .details-specs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .spec-item {
+        padding: 10px;
+    }
+    
+    .spec-value {
+        font-size: 1rem;
+    }
+    
+    .details-section {
+        padding: 20px;
+    }
+    
+    .inquiry-btn {
+        padding: 14px 35px;
+        font-size: 1rem;
+    }
+}
+
+/* Vehicle Card Styles for Grid */
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.vehicle-card {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+    border-color: #e94560;
+}
+
+.vehicle-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .vehicle-image img {
+    transform: scale(1.05);
+}
+
+.vehicle-image .wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.vehicle-image .wishlist-btn:hover {
+    background: rgba(233, 69, 96, 0.9);
+    transform: scale(1.1);
+}
+
+.vehicle-image .wishlist-btn.active {
+    background: #e94560;
+}
+
+.vehicle-info {
+    padding: 20px;
+}
+
+.vehicle-info h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.vehicle-year,
+.vehicle-mileage {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.vehicle-price {
+    color: #4ecca3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.view-details-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    transform: scale(1.02);
+}
+

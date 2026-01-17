@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-main">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p class="contact-subtitle">Have questions? We'd love to hear from you.</p>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Your Name</label>
+                                <input type="text" id="contactName" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" name="phone" placeholder="+92 300 1234567">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <select id="contactSubject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="vehicle">Vehicle Inquiry</option>
+                                <option value="selling">Selling Your Vehicle</option>
+                                <option value="parts">Spare Parts</option>
+                                <option value="support">Customer Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message</label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <h2>Get in Touch</h2>
+                    
+                    <div class="info-card">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <h3>Address</h3>
+                                <p>123 Auto Mall, Main Boulevard<br>Lahore, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+92 300 1234567<br>+92 321 7654321</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@vehiclehub.com<br>support@vehiclehub.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🕐</span>
+                            <div>
+                                <h3>Working Hours</h3>
+                                <p>Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Facebook">📘</a>
+                            <a href="#" class="social-link" title="Instagram">📸</a>
+                            <a href="#" class="social-link" title="Twitter">🐦</a>
+                            <a href="#" class="social-link" title="YouTube">📺</a>
+                            <a href="#" class="social-link" title="WhatsApp">💬</a>
+                        </div>
+                    </div>
+
+                    <div class="map-section">
+                        <h3>Find Us</h3>
+                        <div class="map-placeholder">
+                            <p>📍 Lahore, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How can I list my vehicle for sale?</h3>
+                        <p>Simply click on "Sell Your Vehicle" in the navigation or visit our sell-vehicle page. Fill out the form with your vehicle details and photos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is there any fee for listing?</h3>
+                        <p>Basic listings are free! We also offer premium listing options with additional features for better visibility.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How can I contact a seller?</h3>
+                        <p>You can use the inquiry form on any vehicle detail page to contact the seller directly.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do you provide financing options?</h3>
+                        <p>Yes! We partner with leading banks to offer easy auto financing options. Contact us for more details.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Store contact inquiry
+            const contacts = JSON.parse(localStorage.getItem('vehiclehub_contacts') || '[]');
+            contacts.push({
+                id: Date.now(),
+                ...Object.fromEntries(formData),
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('vehiclehub_contacts', JSON.stringify(contacts));
+            
+            showNotification('Message sent successfully! We will respond within 24 hours.');
+            form.reset();
+        }
+    </script>
+</body>
+</html>
+

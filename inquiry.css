@@ -1,0 +1,315 @@
+/* Inquiry Modal Styles */
+
+/* Modal Overlay */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #e94560;
+    border-radius: 20px;
+    max-width: 550px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideUp 0.3s ease;
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(233, 69, 96, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.modal-close:hover {
+    background: #e94560;
+    transform: rotate(90deg);
+}
+
+/* Modal Image */
+.modal-content > img:first-child {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-body h3 {
+    color: #e94560;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-body p {
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(233, 69, 96, 0.2);
+    color: #e94560;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.news-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Inquiry Form Styles */
+.inquiry-modal {
+    max-width: 500px;
+}
+
+.inquiry-modal h2 {
+    color: #e94560;
+    margin-bottom: 5px;
+}
+
+.inquiry-modal h3 {
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #ccc;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e94560;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* News Modal Specific */
+.news-modal {
+    max-width: 700px;
+}
+
+.news-modal .modal-body {
+    padding: 30px;
+}
+
+.news-modal h2 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.news-content {
+    color: #aaa;
+    line-height: 1.8;
+}
+
+/* Responsive Modal */
+@media (max-width: 600px) {
+    .modal {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+        border-radius: 15px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-body h2 {
+        font-size: 1.2rem;
+    }
+    
+    .inquiry-form {
+        gap: 15px;
+    }
+}
+
+/* Form Validation States */
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #e94560;
+}
+
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: #4ecca3;
+}
+
+/* Loading State */
+.submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success Message */
+.form-success {
+    text-align: center;
+    padding: 30px;
+}
+
+.form-success .success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.form-success h3 {
+    color: #4ecca3;
+    margin-bottom: 10px;
+}
+
+.form-success p {
+    color: #888;
+}
+

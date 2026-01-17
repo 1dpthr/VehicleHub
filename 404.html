@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="error.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main class="error-main">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1>Oops! Page Not Found</h1>
+            <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+            
+            <div class="error-actions">
+                <a href="homePage.html" class="home-btn">🏠 Go to Homepage</a>
+                <button onclick="goBack()" class="back-btn">← Go Back</button>
+            </div>
+
+            <div class="error-search">
+                <h2>Looking for something?</h2>
+                <form id="errorSearchForm" onsubmit="handleErrorSearch(event)">
+                    <input type="text" id="errorSearchInput" placeholder="Search for cars, bikes, or parts...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="error-links">
+                <h3>Quick Links</h3>
+                <div class="links-grid">
+                    <a href="homePage.html" class="quick-link">
+                        <span class="link-icon">🚗</span>
+                        <span>Cars for Sale</span>
+                    </a>
+                    <a href="Bikes.html" class="quick-link">
+                        <span class="link-icon">🏍️</span>
+                        <span>Bikes for Sale</span>
+                    </a>
+                    <a href="SpareParts.html" class="quick-link">
+                        <span class="link-icon">🔧</span>
+                        <span>Spare Parts</span>
+                    </a>
+                    <a href="sell-vehicle.html" class="quick-link">
+                        <span class="link-icon">💰</span>
+                        <span>Sell Your Vehicle</span>
+                    </a>
+                    <a href="News.html" class="quick-link">
+                        <span class="link-icon">📰</span>
+                        <span>Automotive News</span>
+                    </a>
+                    <a href="contact.html" class="quick-link">
+                        <span class="link-icon">📞</span>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="error-stats">
+                <p>Don't worry, everything is running smoothly on our end.</p>
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Vehicles Listed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Cities Covered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function handleErrorSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('errorSearchInput').value;
+            if (query.trim()) {
+                window.location.href = `homePage.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+    </script>
+</body>
+</html>
+

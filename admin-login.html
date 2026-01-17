@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card admin-login-card">
+            <div class="auth-header">
+                <div class="admin-icon">🔐</div>
+                <h1>Admin Login</h1>
+                <p>Enter admin credentials to access the dashboard</p>
+            </div>
+            
+            <form id="adminLoginForm" onsubmit="return handleAdminLogin(event)">
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" name="email" placeholder="admin@vehiclehub.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" name="password" placeholder="Enter admin password" required>
+                </div>
+                <div id="loginError" class="error-message" style="display: none;"></div>
+                <button type="submit" class="auth-btn admin-login-btn">Login as Admin</button>
+            </form>
+            
+            <div class="admin-login-footer">
+                <a href="homePage.html" class="back-link">← Back to Home</a>
+                <a href="login.html" class="customer-link">Customer Login</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <style>
+        .admin-login-card {
+            max-width: 450px;
+        }
+        
+        .admin-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .auth-header h1 {
+            color: #e94560;
+        }
+        
+        .auth-header p {
+            color: #888;
+        }
+        
+        .error-message {
+            color: #e94560;
+            background: rgba(233, 69, 96, 0.1);
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .admin-login-btn {
+            background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+            padding: 16px;
+            font-size: 1.1rem;
+        }
+        
+        .admin-login-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .back-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #e94560;
+        }
+        
+        .customer-link {
+            color: #4ecca3;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .customer-link:hover {
+            color: #6feebb;
+        }
+    </style>
+
+    <script src="app.js"></script>
+    <script>
+        // Admin credentials
+        const ADMIN_CREDENTIALS = {
+            email: 'admin@vehiclehub.com',
+            password: 'admin123'
+        };
+
+        // Check if already logged in as admin
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminUser = JSON.parse(localStorage.getItem('vehiclehub_admin') || 'null');
+            if (adminUser && adminUser.role === 'admin') {
+                window.location.href = 'admin.html';
+            }
+        });
+
+        // Admin login handler
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            console.log('Login attempt with:', email);
+            
+            // Validate credentials
+            if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+                // Create admin session
+                const adminUser = {
+                    id: 'admin-001',
+                    username: 'Administrator',
+                    email: email,
+                    role: 'admin',
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('vehiclehub_admin', JSON.stringify(adminUser));
+                
+                // Show success notification
+                const notification = document.createElement('div');
+                notification.className = 'notification success';
+                notification.innerHTML = '<span>Welcome, Administrator!</span><button onclick="this.parentElement.remove()">×</button>';
+                notification.style.cssText = 'position: fixed; top: 80px; right: 20px; padding: 15px 25px; background: #4ecca3; color: #1a1a2e; border-radius: 8px; display: flex; align-items: center; gap: 15px; z-index: 9999; animation: slideIn 0.3s ease;';
+                document.body.appendChild(notification);
+                
+                // Redirect to admin panel
+                setTimeout(() => {
+                    window.location.href = 'admin.html';
+                }, 1500);
+                
+                return false;
+            } else {
+                // Show error
+                errorDiv.textContent = 'Invalid admin credentials. Please try again.';
+                errorDiv.style.display = 'block';
+                
+                // Shake animation
+                const form = document.getElementById('adminLoginForm');
+                form.style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    form.style.animation = '';
+                }, 500);
+            }
+            
+            return false;
+        }
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-10px); }
+                40%, 80% { transform: translateX(10px); }
+            }
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

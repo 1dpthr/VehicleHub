@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Vehicle - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main class="sell-main">
+        <div class="sell-container">
+            <div class="sell-header">
+                <h1>Sell Your Vehicle</h1>
+                <p>Reach thousands of potential buyers. List your vehicle in minutes!</p>
+            </div>
+
+            <form id="sellForm" onsubmit="handleSellSubmit(event)">
+                <!-- Vehicle Type -->
+                <section class="form-section">
+                    <h2>Vehicle Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleType">Vehicle Type *</label>
+                            <select id="vehicleType" name="vehicleType" required onchange="updateFormFields()">
+                                <option value="">Select Type</option>
+                                <option value="car">Car</option>
+                                <option value="bike">Motorcycle</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="make">Make *</label>
+                            <select id="make" name="make" required>
+                                <option value="">Select Make</option>
+                                <optgroup label="Cars">
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Suzuki">Suzuki</option>
+                                    <option value="Daihatsu">Daihatsu</option>
+                                    <option value="Kia">Kia</option>
+                                    <option value="Hyundai">Hyundai</option>
+                                </optgroup>
+                                <optgroup label="Motorcycles">
+                                    <option value="Honda">Honda</option>
+                                    <option value="Suzuki">Suzuki</option>
+                                    <option value="Yamaha">Yamaha</option>
+                                    <option value="United">United</option>
+                                    <option value="Road Prince">Road Prince</option>
+                                    <option value="Super Power">Super Power</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="model">Model *</label>
+                            <input type="text" id="model" name="model" placeholder="e.g., Corolla, Civic, Swift" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year *</label>
+                            <select id="year" name="year" required>
+                                <option value="">Select Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mileage">Mileage (km) *</label>
+                            <input type="number" id="mileage" name="mileage" placeholder="e.g., 50000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Asking Price (Rs.) *</label>
+                            <input type="number" id="price" name="price" placeholder="e.g., 1500000" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fuel">Fuel Type</label>
+                            <select id="fuel" name="fuel">
+                                <option value="">Select Fuel</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="CNG">CNG</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Electric">Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transmission">Transmission</label>
+                            <select id="transmission" name="transmission">
+                                <option value="">Select Transmission</option>
+                                <option value="Manual">Manual</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Semi-Auto">Semi-Automatic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="engine">Engine Capacity</label>
+                            <input type="text" id="engine" name="engine" placeholder="e.g., 1300cc">
+                        </div>
+                        <div class="form-group">
+                            <label for="color">Color</label>
+                            <input type="text" id="color" name="color" placeholder="e.g., Silver, White, Black">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" rows="5" placeholder="Describe your vehicle's condition, features, and any other important details..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="features">Features</label>
+                        <div class="features-grid">
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Air Conditioning"> Air Conditioning</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Power Steering"> Power Steering</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Power Windows"> Power Windows</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="ABS"> ABS</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Sunroof"> Sunroof</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Leather Seats"> Leather Seats</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Reverse Camera"> Reverse Camera</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Alloy Rims"> Alloy Rims</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Central Locking"> Central Locking</label>
+                            <label class="feature-checkbox"><input type="checkbox" name="features" value="Push Button Start"> Push Button Start</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Location -->
+                <section class="form-section">
+                    <h2>Location</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <select id="city" name="city" required>
+                                <option value="">Select City</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Rawalpindi">Rawalpindi</option>
+                                <option value="Faisalabad">Faisalabad</option>
+                                <option value="Multan">Multan</option>
+                                <option value="Peshawar">Peshawar</option>
+                                <option value="Quetta">Quetta</option>
+                                <option value="Gujranwala">Gujranwala</option>
+                                <option value="Sialkot">Sialkot</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Bahawalpur">Bahawalpur</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Area/Location</label>
+                            <input type="text" id="area" name="area" placeholder="e.g., Model Town, Clifton">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Info -->
+                <section class="form-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sellerName">Your Name *</label>
+                            <input type="text" id="sellerName" name="sellerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sellerPhone">Phone Number *</label>
+                            <input type="tel" id="sellerPhone" name="sellerPhone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellerEmail">Email Address *</label>
+                        <input type="email" id="sellerEmail" name="sellerEmail" required>
+                    </div>
+                </section>
+
+                <!-- Photos -->
+                <section class="form-section">
+                    <h2>Photos</h2>
+                    <div class="photo-upload">
+                        <div class="upload-area" id="uploadArea">
+                            <span class="upload-icon">📷</span>
+                            <p>Drag and drop photos here or click to upload</p>
+                            <p class="upload-hint">Upload up to 10 photos (JPEG, PNG)</p>
+                            <input type="file" id="photoUpload" multiple accept="image/*" style="display: none;">
+                        </div>
+                        <div class="photo-preview" id="photoPreview"></div>
+                    </div>
+                </section>
+
+                <!-- Terms -->
+                <section class="form-section">
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>. I confirm that I am the owner of this vehicle.</label>
+                    </div>
+                </section>
+
+                <!-- Submit -->
+                <div class="form-actions">
+                    <button type="button" class="save-draft-btn" onclick="saveDraft()">Save as Draft</button>
+                    <button type="submit" class="submit-btn">List My Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function updateFormFields() {
+            const type = document.getElementById('vehicleType').value;
+            const features = document.querySelectorAll('.features-grid .feature-checkbox');
+            
+            if (type === 'bike') {
+                // Hide car-specific features for bikes
+                const bikeFeatures = ['Air Conditioning', 'Power Steering', 'Power Windows', 'ABS', 'Sunroof', 'Leather Seats', 'Reverse Camera'];
+                features.forEach(f => {
+                    if (bikeFeatures.includes(f.querySelector('input').value)) {
+                        f.style.display = 'none';
+                    } else {
+                        f.style.display = 'block';
+                    }
+                });
+            } else {
+                features.forEach(f => f.style.display = 'block');
+            }
+        }
+
+        function handleSellSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Get selected features
+            const features = [];
+            form.querySelectorAll('input[name="features"]:checked').forEach(cb => {
+                features.push(cb.value);
+            });
+            formData.append('features', features.join(', '));
+
+            // Create listing
+            const listings = JSON.parse(localStorage.getItem('vehiclehub_listings') || '[]');
+            const listing = {
+                id: Date.now(),
+                ...Object.fromEntries(formData),
+                status: 'active',
+                postedDate: new Date().toISOString(),
+                views: 0
+            };
+            listings.push(listing);
+            localStorage.setItem('vehiclehub_listings', JSON.stringify(listings));
+
+            showNotification('Vehicle listed successfully! It will be visible shortly.');
+            form.reset();
+            document.getElementById('photoPreview').innerHTML = '';
+        }
+
+        function saveDraft() {
+            const form = document.getElementById('sellForm');
+            const formData = new FormData(form);
+            const draft = Object.fromEntries(formData);
+            localStorage.setItem('vehiclehub_draft', JSON.stringify(draft));
+            showNotification('Draft saved!');
+        }
+
+        // Photo upload handling
+        document.getElementById('uploadArea').addEventListener('click', () => {
+            document.getElementById('photoUpload').click();
+        });
+
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const preview = document.getElementById('photoPreview');
+            const files = Array.from(e.target.files).slice(0, 10);
+            
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = 'photo-thumb';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" alt="Photo ${index + 1}">
+                        <button type="button" onclick="this.parentElement.remove()">×</button>
+                    `;
+                    preview.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        // Auto-fill from user profile
+        document.addEventListener('DOMContentLoaded', function() {
+            if (UserAuth.currentUser) {
+                document.getElementById('sellerName').value = UserAuth.currentUser.username || '';
+                document.getElementById('sellerEmail').value = UserAuth.currentUser.email || '';
+                document.getElementById('sellerPhone').value = UserAuth.currentUser.phone || '';
+
+                // Load draft if exists
+                const draft = JSON.parse(localStorage.getItem('vehiclehub_draft') || '{}');
+                if (Object.keys(draft).length > 0) {
+                    Object.keys(draft).forEach(key => {
+                        const field = document.querySelector(`[name="${key}"]`);
+                        if (field) {
+                            if (field.type === 'checkbox') {
+                                field.checked = draft[key].includes(field.value);
+                            } else {
+                                field.value = draft[key];
+                            }
+                        }
+                    });
+                    updateFormFields();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

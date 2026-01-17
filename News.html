@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive News - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="inquiry.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="homePage.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Automotive News</h1>
+
+        <!-- Category Filter -->
+        <section class="category-filter">
+            <button class="category-btn active" onclick="filterNews('all')">All News</button>
+            <button class="category-btn" onclick="filterNews('New Launches')">New Launches</button>
+            <button class="category-btn" onclick="filterNews('Policy')">Policy</button>
+            <button class="category-btn" onclick="filterNews('Bikes')">Bikes</button>
+            <button class="category-btn" onclick="filterNews('Market')">Market</button>
+            <button class="category-btn" onclick="filterNews('Safety')">Safety</button>
+        </section>
+
+        <section class="news-listing" id="newsListing"></section>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="News.js"></script>
+</body>
+</html>
+
