@@ -14,8 +14,8 @@ const vehicles = {
             year: 2015,
             mileage: 50000,
             price: 1500000,
-            image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop',
+            image: 'Assets/Toyota Corolla.jpeg',
+            thumbnail: 'Assets/Toyota Corolla.jpeg',
             fuel: 'Petrol',
             transmission: 'Manual',
             engine: '1300cc',
@@ -33,8 +33,8 @@ const vehicles = {
             year: 2018,
             mileage: 20000,
             price: 2000000,
-            image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=400&h=300&fit=crop',
+            image: 'Assets/Honda civic.jpeg',
+            thumbnail: 'Assets/Honda civic.jpeg',
             fuel: 'Petrol',
             transmission: 'Automatic',
             engine: '1800cc',
@@ -52,8 +52,8 @@ const vehicles = {
             year: 2017,
             mileage: 30000,
             price: 1200000,
-            image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=300&fit=crop',
+            image: 'Assets/Suzuki swift.jpeg',
+            thumbnail: 'Assets/Suzuki swift.jpeg',
             fuel: 'Petrol',
             transmission: 'Manual',
             engine: '1200cc',
@@ -71,8 +71,8 @@ const vehicles = {
             year: 2017,
             mileage: 30000,
             price: 850000,
-            image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=300&fit=crop',
+            image: 'Assets/Suzuki Mehran.jpeg',
+            thumbnail: 'Assets/Suzuki Mehran.jpeg',
             fuel: 'Petrol',
             transmission: 'Manual',
             engine: '800cc',
@@ -92,15 +92,15 @@ const vehicles = {
             year: 2015,
             mileage: 20000,
             price: 80000,
-            image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&h=300&fit=crop',
+            image: 'Assets/Honda CD 70.jpeg',
+            thumbnail: 'Assets/Honda CD 70.jpeg',
             fuel: 'Petrol',
             engine: '70cc',
             color: 'Black',
             location: 'Lahore',
             condition: 'Used',
             description: 'This Honda CD 70 is a reliable and fuel-efficient motorcycle. Well maintained with regular service records.',
-            features: ['Electric Start', 'Kick Start', ' Alloy Rims', 'Long Seat'],
+            features: ['Electric Start', 'Kick Start', 'Alloy Rims', 'Long Seat'],
             postedDate: '2024-03-14'
         },
         {
@@ -110,8 +110,8 @@ const vehicles = {
             year: 2018,
             mileage: 10000,
             price: 120000,
-            image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop',
+            image: 'Assets/Suzuki GS 150.jpeg',
+            thumbnail: 'Assets/Suzuki GS 150.jpeg',
             fuel: 'Petrol',
             engine: '150cc',
             color: 'Red',
@@ -128,8 +128,8 @@ const vehicles = {
             year: 2017,
             mileage: 15000,
             price: 90000,
-            image: 'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=400&h=300&fit=crop',
+            image: 'Assets/Yamaha YBR 125.jpeg',
+            thumbnail: 'Assets/Yamaha YBR 125.jpeg',
             fuel: 'Petrol',
             engine: '125cc',
             color: 'Blue',
@@ -146,8 +146,8 @@ const vehicles = {
             year: 2017,
             mileage: 15000,
             price: 85000,
-            image: 'https://images.unsplash.com/photo-1502744688674-c619d1586c9e?w=600&h=400&fit=crop',
-            thumbnail: 'https://images.unsplash.com/photo-1502744688674-c619d1586c9e?w=400&h=300&fit=crop',
+            image: 'Assets/United US 125.jpeg',
+            thumbnail: 'Assets/United US 125.jpeg',
             fuel: 'Petrol',
             engine: '125cc',
             color: 'Black',
@@ -160,13 +160,13 @@ const vehicles = {
     ]
 };
 
-// News Data
+// News Data (Using placeholder images since no local news images available)
 const news = [
     {
         id: 1,
         title: 'New Toyota Corolla Hybrid Launching Soon',
         date: 'March 15, 2024',
-        image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
+        image: 'Assets/Toyota Corolla.jpeg',
         summary: 'Toyota is set to launch the all-new Corolla Hybrid in Pakistan with improved fuel efficiency.',
         content: 'Toyota is set to launch the all-new Corolla Hybrid in Pakistan with improved fuel efficiency and modern features. The new model promises to deliver up to 25km/liter mileage, making it one of the most fuel-efficient vehicles in its segment.',
         category: 'New Launches'
@@ -175,7 +175,7 @@ const news = [
         id: 2,
         title: 'Electric Vehicle Tax Relief Announced',
         date: 'March 10, 2024',
-        image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop',
+        image: 'Assets/Electric.jpeg',
         summary: 'Government announces new tax incentives for electric vehicle purchases.',
         content: 'The government has announced new tax incentives for electric vehicle purchases, making EVs more affordable for Pakistani consumers. This move is expected to boost EV adoption by 40% in the coming years.',
         category: 'Policy'
@@ -184,7 +184,7 @@ const news = [
         id: 3,
         title: 'Honda Announces New Bike Models for 2024',
         date: 'March 5, 2024',
-        image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop',
+        image: 'Assets/honda new model.jpeg',
         summary: 'Honda unveils three new motorcycle models with advanced technology.',
         content: 'Honda has unveiled three new motorcycle models equipped with advanced technology and improved fuel efficiency. The new lineup includes sports, commuter, and premium bikes to cater to different customer segments.',
         category: 'Bikes'
@@ -193,7 +193,7 @@ const news = [
         id: 4,
         title: 'Used Car Market Trends 2024',
         date: 'February 28, 2024',
-        image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop',
+        image: 'Assets/Suzuki Mehran.jpeg',
         summary: 'Analysis shows increasing demand for Japanese vehicles in used car market.',
         content: 'Analysis of the used car market shows increasing demand for Japanese vehicles, particularly Toyota and Honda models. Prices have stabilized after the initial import duty changes.',
         category: 'Market'
@@ -202,7 +202,7 @@ const news = [
         id: 5,
         title: 'Road Safety Campaign Launched',
         date: 'February 20, 2024',
-        image: 'https://images.unsplash.com/photo-1449824913929-651196d28172?w=600&h=400&fit=crop',
+        image: 'Assets/road safety.jpeg',
         summary: 'Nationwide road safety campaign to reduce accidents.',
         content: 'A nationwide road safety campaign has been launched to reduce accidents and promote responsible driving. The initiative includes free helmet distributions and safety awareness programs.',
         category: 'Safety'
@@ -211,7 +211,7 @@ const news = [
         id: 6,
         title: 'New Highway Connecting Major Cities',
         date: 'February 15, 2024',
-        image: 'https://images.unsplash.com/photo-1519003300449-424423580305?w=600&h=400&fit=crop',
+        image: 'Assets/highway.jpeg',
         summary: 'New highway project to reduce travel time between cities.',
         content: 'Construction has begun on a new highway that will reduce travel time between Lahore and Karachi by 4 hours. The project is expected to be completed by 2026.',
         category: 'Infrastructure'
@@ -225,7 +225,7 @@ const spareParts = [
         name: 'Engine Oil',
         category: 'Fluids',
         price: { min: 1500, max: 3000 },
-        image: 'https://images.unsplash.com/photo-1508062562983-90a86dd263e3?w=400&h=300&fit=crop',
+        image: 'Assets/Engine Oil.jpeg',
         description: 'Premium quality engine oils for all vehicle types',
         brands: ['Shell', 'Mobil', 'Castrol', 'Total']
     },
@@ -234,7 +234,7 @@ const spareParts = [
         name: 'Tires & Rims',
         category: 'Wheels',
         price: { min: 5000, max: 25000 },
-        image: 'https://images.unsplash.com/photo-1569391570861-20c3b82a1c11?w=400&h=300&fit=crop',
+        image: 'Assets/Tire & Rims.jpeg',
         description: 'Wide range of tires and alloy rims for all vehicles',
         brands: ['Michelin', 'Bridgestone', 'Goodyear', 'Continental']
     },
@@ -243,7 +243,7 @@ const spareParts = [
         name: 'Batteries',
         category: 'Electrical',
         price: { min: 8000, max: 15000 },
-        image: 'https://images.unsplash.com/photo-1626323938817-b25db28df46a?w=400&h=300&fit=crop',
+        image: 'Assets/Batteries.jpeg',
         description: 'Long-lasting batteries for cars and bikes',
         brands: ['AGS', 'Exide', 'Volta', 'Phoenix']
     },
@@ -252,7 +252,7 @@ const spareParts = [
         name: 'Brake Parts',
         category: 'Brakes',
         price: { min: 2000, max: 10000 },
-        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop',
+        image: 'Assets/Brake parts.jpeg',
         description: 'Brake pads, discs, and complete brake kits',
         brands: ['Bosch', 'Brembo', 'Aisin', 'Bendix']
     },
@@ -261,7 +261,7 @@ const spareParts = [
         name: 'Lighting',
         category: 'Electrical',
         price: { min: 500, max: 5000 },
-        image: 'https://images.unsplash.com/photo-1552976584-1c12609244da?w=400&h=300&fit=crop',
+        image: 'Assets/Lighting.jpeg',
         description: 'LED lights, bulbs, and complete lighting solutions',
         brands: ['Philips', 'Osram', 'Hella', 'Generic']
     },
@@ -270,7 +270,7 @@ const spareParts = [
         name: 'Interior Accessories',
         category: 'Interior',
         price: { min: 1000, max: 8000 },
-        image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=300&fit=crop',
+        image: 'Assets/Interior accessories.jpeg',
         description: 'Seat covers, floor mats, and steering covers',
         brands: ['Michelin', '3M', 'HKS', 'Generic']
     }
@@ -746,24 +746,41 @@ function updateNavbar() {
     const userSection = document.getElementById('userSection');
     if (!userSection) return;
     
+    // Clear the userSection first
+    userSection.innerHTML = '';
+    
     if (UserAuth.currentUser) {
+        // If logged in, show user menu with username and logout
         userSection.innerHTML = `
-            <li class="user-menu">
-                <a href="#" class="user-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="user-avatar">
-                    <span>${UserAuth.currentUser.username}</span>
-                </a>
-                <ul class="user-dropdown">
-                    <li><a href="dashboard.html">My Dashboard</a></li>
-                    <li><a href="#" onclick="UserAuth.logout(); return false;">Logout</a></li>
-                </ul>
-            </li>
+            <a href="#" class="user-link">
+                <img src="Assets/Honda civic.jpeg" alt="User" class="user-avatar">
+                <span>${UserAuth.currentUser.username}</span>
+            </a>
+            <ul class="user-dropdown">
+                <li><a href="dashboard.html">My Dashboard</a></li>
+                <li><a href="#" onclick="UserAuth.logout(); return false;">Logout</a></li>
+            </ul>
         `;
+        
+        // Add user-menu class to parent li
+        userSection.classList.add('user-menu');
     } else {
+        // If NOT logged in, show Login and Sign Up links
         userSection.innerHTML = `
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+            <a href="login.html">Login</a>
         `;
+        userSection.classList.remove('user-menu');
+        
+        // Add Sign Up button as a separate li after userSection
+        const navbarUl = userSection.parentElement;
+        // Remove any existing standalone signup buttons
+        const existingSignup = navbarUl.querySelectorAll('li:not(#userSection) > .signup-btn');
+        existingSignup.forEach(btn => btn.parentElement.remove());
+        
+        // Create new Sign Up li
+        const signupLi = document.createElement('li');
+        signupLi.innerHTML = '<a href="signup.html" class="signup-btn">Sign Up</a>';
+        navbarUl.appendChild(signupLi);
     }
 }
 

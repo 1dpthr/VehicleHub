@@ -22,15 +22,32 @@
         </ul>
     </nav>
 
-    <div class="login-container">
-        <div class="loginBorder">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon" height="80px" width="80px">
-            <div class="login">
-                <form id="loginForm" onsubmit="return loginFunctions.handleLogin(event)">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <button type="submit" class="button">Login</button>
-                </form>
+    <div class="auth-container">
+        <div class="auth-card login-card">
+            <div class="auth-header">
+                <span class="auth-icon">👤</span>
+                <h1>Welcome Back</h1>
+                <p>Login to your VehicleHub account</p>
+            </div>
+            <form id="loginForm" onsubmit="return loginFunctions.handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
             </div>
         </div>
     </div>

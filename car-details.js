@@ -9,8 +9,8 @@ const carDetailsData = {
         year: 2015,
         mileage: 50000,
         price: 1500000,
-        image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
-        thumbnail: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop',
+        image: 'Assets/Toyota Corolla.jpeg',
+        thumbnail: 'Assets/Toyota Corolla.jpeg',
         fuel: 'Petrol',
         transmission: 'Manual',
         engine: '1300cc',
@@ -28,8 +28,8 @@ const carDetailsData = {
         year: 2018,
         mileage: 20000,
         price: 2000000,
-        image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600&h=400&fit=crop',
-        thumbnail: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=400&h=300&fit=crop',
+            image: 'Assets/Honda civic.jpeg',
+            thumbnail: 'Assets/Honda civic.jpeg',
         fuel: 'Petrol',
         transmission: 'Automatic',
         engine: '1800cc',
@@ -47,8 +47,8 @@ const carDetailsData = {
         year: 2017,
         mileage: 30000,
         price: 1200000,
-        image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&h=400&fit=crop',
-        thumbnail: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=300&fit=crop',
+        image: 'Assets/Suzuki Mehran.jpeg',
+        thumbnail: 'Assets/Suzuki Mehran.jpeg',
         fuel: 'Petrol',
         transmission: 'Manual',
         engine: '1200cc',
@@ -66,8 +66,8 @@ const carDetailsData = {
         year: 2017,
         mileage: 30000,
         price: 850000,
-        image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop',
-        thumbnail: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=300&fit=crop',
+        image: 'Assets/Suzuki Mehran.jpeg',
+        thumbnail: 'Assets/Suzuki Mehran.jpeg',
         fuel: 'Petrol',
         transmission: 'Manual',
         engine: '800cc',
@@ -81,12 +81,24 @@ const carDetailsData = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get car ID from filename - works with GitHub Pages paths
+    // Get car ID from filename - handle different page naming conventions
     const path = window.location.pathname;
     const filename = path.split('/').pop(); // Get filename from path
-    const carId = Object.keys(carDetailsData).find(id => 
-        filename === `car-details-${id}.html` || path.includes(`car-details-${id}.html`)
-    );
+    
+    // Map filenames to car IDs
+    const filenameToCarId = {
+        'Corolla.html': 'corolla',
+        'corolla.html': 'corolla',
+        'car-details-honda.html': 'civic',
+        'car-details-suzuki.html': 'swift',
+        'car-details-mehran.html': 'mehran'
+    };
+    
+    const carId = filenameToCarId[filename] || 
+                  Object.keys(carDetailsData).find(id => 
+                      filename === `car-details-${id}.html` || 
+                      path.includes(`car-details-${id}.html`)
+                  );
     
     if (carId && carDetailsData[carId]) {
         renderCarDetails(carDetailsData[carId]);

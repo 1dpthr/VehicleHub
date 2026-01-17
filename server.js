@@ -462,8 +462,12 @@ app.get('/api/seed', async (req, res) => {
     try {
         // Seed News
         const newsData = [
-            { title: 'New Toyota Corolla Hybrid Launching Soon', date: 'March 15, 2024', category: 'New Launches', image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600', summary: 'Toyota launches hybrid in Pakistan', content: 'Full article content...' },
-            { title: 'Electric Vehicle Tax Relief Announced', date: 'March 10, 2024', category: 'Policy', image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600', summary: 'Government announces EV tax incentives', content: 'Full article content...' }
+            { title: 'New Toyota Corolla Hybrid Launching Soon', date: 'March 15, 2024', category: 'New Launches', image: 'Assets/Toyota Corolla.jpeg', summary: 'Toyota is set to launch the all-new Corolla Hybrid in Pakistan with improved fuel efficiency.', content: 'Toyota is set to launch the all-new Corolla Hybrid in Pakistan with improved fuel efficiency and modern features. The new model promises to deliver up to 25km/liter mileage, making it one of the most fuel-efficient vehicles in its segment.' },
+            { title: 'Electric Vehicle Tax Relief Announced', date: 'March 10, 2024', category: 'Policy', image: 'Assets/Electric.jpeg', summary: 'Government announces new tax incentives for electric vehicle purchases.', content: 'The government has announced new tax incentives for electric vehicle purchases, making EVs more affordable for Pakistani consumers. This move is expected to boost EV adoption by 40% in the coming years.' },
+            { title: 'Honda Announces New Bike Models for 2024', date: 'March 5, 2024', category: 'Bikes', image: 'Assets/Honda CD 70.jpeg', summary: 'Honda unveils three new motorcycle models with advanced technology.', content: 'Honda has unveiled three new motorcycle models equipped with advanced technology and improved fuel efficiency. The new lineup includes sports, commuter, and premium bikes to cater to different customer segments.' },
+            { title: 'Used Car Market Trends 2024', date: 'February 28, 2024', category: 'Market', image: 'Assets/Suzuki Mehran.jpeg', summary: 'Analysis shows increasing demand for Japanese vehicles in used car market.', content: 'Analysis of the used car market shows increasing demand for Japanese vehicles, particularly Toyota and Honda models. Prices have stabilized after the initial import duty changes.' },
+            { title: 'Road Safety Campaign Launched', date: 'February 20, 2024', category: 'Safety', image: 'Assets/road safety.jpeg', summary: 'Nationwide road safety campaign to reduce accidents.', content: 'A nationwide road safety campaign has been launched to reduce accidents and promote responsible driving. The initiative includes free helmet distributions and safety awareness programs.' },
+            { title: 'New Highway Connecting Major Cities', date: 'February 15, 2024', category: 'Infrastructure', image: 'Assets/highway.jpeg', summary: 'New highway project to reduce travel time between cities.', content: 'Construction has begun on a new highway that will reduce travel time between Lahore and Karachi by 4 hours. The project is expected to be completed by 2026.' }
         ];
         
         await News.deleteMany({});
@@ -471,8 +475,12 @@ app.get('/api/seed', async (req, res) => {
         
         // Seed Spare Parts
         const partsData = [
-            { name: 'Engine Oil', category: 'Fluids', price: { min: 1500, max: 3000 }, description: 'Premium engine oils', brands: ['Shell', 'Mobil'] },
-            { name: 'Tires & Rims', category: 'Wheels', price: { min: 5000, max: 25000 }, description: 'Quality tires', brands: ['Michelin', 'Bridgestone'] }
+            { name: 'Engine Oil', category: 'Fluids', price: { min: 1500, max: 3000 }, image: 'Assets/Engine Oil.jpeg', description: 'Premium quality engine oils for all vehicle types', brands: ['Shell', 'Mobil', 'Castrol', 'Total'] },
+            { name: 'Tires & Rims', category: 'Wheels', price: { min: 5000, max: 25000 }, image: 'Assets/Tire & Rims.jpeg', description: 'Wide range of tires and alloy rims for all vehicles', brands: ['Michelin', 'Bridgestone', 'Goodyear', 'Continental'] },
+            { name: 'Batteries', category: 'Electrical', price: { min: 8000, max: 15000 }, image: 'Assets/Batteries.jpeg', description: 'Long-lasting batteries for cars and bikes', brands: ['AGS', 'Exide', 'Volta', 'Phoenix'] },
+            { name: 'Brake Parts', category: 'Brakes', price: { min: 2000, max: 10000 }, image: 'Assets/Brake parts.jpeg', description: 'Brake pads, discs, and complete brake kits', brands: ['Bosch', 'Brembo', 'Aisin', 'Bendix'] },
+            { name: 'Lighting', category: 'Electrical', price: { min: 500, max: 5000 }, image: 'Assets/Lighting.jpeg', description: 'LED lights, bulbs, and complete lighting solutions', brands: ['Philips', 'Osram', 'Hella', 'Generic'] },
+            { name: 'Interior Accessories', category: 'Interior', price: { min: 1000, max: 8000 }, image: 'Assets/Interior accessories.jpeg', description: 'Seat covers, floor mats, and steering covers', brands: ['Michelin', '3M', 'HKS', 'Generic'] }
         ];
         
         await SparePart.deleteMany({});

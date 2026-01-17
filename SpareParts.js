@@ -6,7 +6,7 @@ const partsData = [
         name: 'Engine Oil',
         category: 'Fluids',
         price: { min: 1500, max: 3000 },
-        image: 'https://images.unsplash.com/photo-1508062562983-90a86dd263e3?w=400&h=300&fit=crop',
+        image: 'Assets/Engine Oil.jpeg',
         description: 'Premium quality engine oils for all vehicle types',
         brands: ['Shell', 'Mobil', 'Castrol', 'Total']
     },
@@ -15,7 +15,7 @@ const partsData = [
         name: 'Tires & Rims',
         category: 'Wheels',
         price: { min: 5000, max: 25000 },
-        image: 'https://images.unsplash.com/photo-1569391570861-20c3b82a1c11?w=400&h=300&fit=crop',
+        image: 'Assets/Tire & Rims.jpeg',
         description: 'Wide range of tires and alloy rims for all vehicles',
         brands: ['Michelin', 'Bridgestone', 'Goodyear', 'Continental']
     },
@@ -24,7 +24,7 @@ const partsData = [
         name: 'Batteries',
         category: 'Electrical',
         price: { min: 8000, max: 15000 },
-        image: 'https://images.unsplash.com/photo-1626323938817-b25db28df46a?w=400&h=300&fit=crop',
+        image: 'Assets/Batteries.jpeg',
         description: 'Long-lasting batteries for cars and bikes',
         brands: ['AGS', 'Exide', 'Volta', 'Phoenix']
     },
@@ -33,7 +33,7 @@ const partsData = [
         name: 'Brake Parts',
         category: 'Brakes',
         price: { min: 2000, max: 10000 },
-        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop',
+        image: 'Assets/Brake parts.jpeg',
         description: 'Brake pads, discs, and complete brake kits',
         brands: ['Bosch', 'Brembo', 'Aisin', 'Bendix']
     },
@@ -42,7 +42,7 @@ const partsData = [
         name: 'Lighting',
         category: 'Electrical',
         price: { min: 500, max: 5000 },
-        image: 'https://images.unsplash.com/photo-1552976584-1c12609244da?w=400&h=300&fit=crop',
+        image: 'Assets/Lighting.jpeg',
         description: 'LED lights, bulbs, and complete lighting solutions',
         brands: ['Philips', 'Osram', 'Hella', 'Generic']
     },
@@ -51,7 +51,7 @@ const partsData = [
         name: 'Interior Accessories',
         category: 'Interior',
         price: { min: 1000, max: 8000 },
-        image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=300&fit=crop',
+        image: 'Assets/Interior accessories.jpeg',
         description: 'Seat covers, floor mats, and steering covers',
         brands: ['Michelin', '3M', 'HKS', 'Generic']
     }

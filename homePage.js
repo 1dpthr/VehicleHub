@@ -32,6 +32,14 @@ function renderFeaturedCars() {
     
     const cars = vehicles.cars.slice(0, 4);
     
+    // Map car IDs to their detail page URLs
+    const carPageMap = {
+        'corolla': 'Corolla.html',
+        'civic': 'car-details-honda.html',
+        'swift': 'car-details-suzuki.html',
+        'mehran': 'car-details-mehran.html'
+    };
+    
     container.innerHTML = cars.map(car => `
         <article class="vehicle-card car">
             <div class="vehicle-image">
@@ -48,7 +56,7 @@ function renderFeaturedCars() {
                 <p class="vehicle-year">${car.year}</p>
                 <p class="vehicle-mileage">${car.mileage.toLocaleString()} km</p>
                 <p class="vehicle-price">${formatPrice(car.price)}</p>
-                <a href="car-details-${car.id}.html" class="view-details-btn">View Details</a>
+                <a href="${carPageMap[car.id] || 'car-details-' + car.id + '.html'}" class="view-details-btn">View Details</a>
             </div>
         </article>
     `).join('');

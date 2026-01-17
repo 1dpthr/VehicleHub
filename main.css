@@ -1638,6 +1638,41 @@ header.page-header h1 {
     to { transform: rotate(360deg); }
 }
 
+/* Category Button Styles */
+.parts-categories,
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 35px;
+    padding: 20px;
+}
+
+.category-btn {
+    padding: 12px 25px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 25px;
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    border-color: #e94560;
+    color: #fff;
+    background: rgba(233, 69, 96, 0.1);
+}
+
+.category-btn.active {
+    background: linear-gradient(90deg, #e94560 0%, #c23a51 100%);
+    border-color: #e94560;
+    color: #fff;
+}
+
 /* Tooltip */
 .tooltip {
     position: relative;
@@ -1663,6 +1698,675 @@ header.page-header h1 {
 .tooltip:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+/* Category Filter Buttons */
+.parts-categories,
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 25px;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    border-color: #e94560;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.2);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    border-color: #e94560;
+    color: #fff;
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+}
+
+/* Parts/Car/Bike/News Listings */
+.parts-listing,
+.car-listing,
+.bike-listing,
+.news-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.parts-listing:empty::after {
+    content: 'No parts found';
+    color: #888;
+    text-align: center;
+    padding: 40px;
+    display: block;
+    width: 100%;
+}
+
+.news-listing:empty::after {
+    content: 'No news articles found';
+    color: #888;
+    text-align: center;
+    padding: 40px;
+    display: block;
+    width: 100%;
+}
+
+/* Part Card Styles */
+.part {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.part:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.25);
+    border-color: #e94560;
+}
+
+.part-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.part-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.part:hover .part-image img {
+    transform: scale(1.05);
+}
+
+.part h2 {
+    margin: 18px 18px 8px;
+    font-size: 1.2rem;
+    color: #e94560;
+}
+
+.part .part-category {
+    margin: 0 18px;
+    padding: 4px 12px;
+    background: rgba(233, 69, 96, 0.15);
+    color: #e94560;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.part > p {
+    margin: 12px 18px;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.part .price {
+    margin: 10px 18px;
+    color: #4ecca3;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.part-brands {
+    margin: 10px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.brand-tag {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.part > a,
+.part > a:link,
+.part > a:visited {
+    display: inline-block;
+    margin: 15px 18px 18px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.part > a:hover {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* Car/Bike Card Styles */
+.car,
+.bike {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.car:hover,
+.bike:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.25);
+    border-color: #e94560;
+}
+
+.car img,
+.bike img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.car:hover img,
+.bike:hover img {
+    transform: scale(1.05);
+}
+
+.car h2,
+.bike h2 {
+    margin: 18px 18px 8px;
+    font-size: 1.2rem;
+    color: #e94560;
+}
+
+.car p,
+.bike p {
+    margin: 0 18px 8px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.car .price,
+.bike .price {
+    margin: 10px 18px;
+    color: #4ecca3;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.car > a,
+.bike > a,
+.car > a:link,
+.car > a:visited,
+.bike > a:link,
+.bike > a:visited {
+    display: inline-block;
+    margin: 15px 18px 18px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.car > a:hover,
+.bike > a:hover {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* News Card Styles */
+.news {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.news:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.25);
+    border-color: #e94560;
+}
+
+.news img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news:hover img {
+    transform: scale(1.05);
+}
+
+.news h2 {
+    margin: 18px 18px 8px;
+    font-size: 1.1rem;
+    color: #4ecca3;
+    line-height: 1.4;
+}
+
+.news .date {
+    margin: 0 18px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.news > p {
+    margin: 10px 18px;
+    color: #999;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.news > a,
+.news > a:link,
+.news > a:visited {
+    display: inline-block;
+    margin: 15px 18px 18px;
+    padding: 10px 22px;
+    background: transparent;
+    color: #e94560 !important;
+    text-decoration: none;
+    border: 2px solid #e94560;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.news > a:hover {
+    background: #e94560;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .parts-categories,
+    .category-filter {
+        padding: 20px 15px;
+        gap: 10px;
+    }
+    
+    .category-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+    
+    .parts-listing,
+    .car-listing,
+    .bike-listing,
+    .news-listing {
+        grid-template-columns: 1fr;
+        padding: 15px 0;
+    }
+}
+
+/* Inquire Now Button - Direct Link Buttons */
+a.inquire-btn,
+.part > a,
+.car > a,
+.bike > a,
+.news > a,
+.part > a:link,
+.part > a:visited,
+.car > a:link,
+.car > a:visited,
+.bike > a:link,
+.bike > a:visited,
+.news > a:link,
+.news > a:visited {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 15px 20px 20px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+a.inquire-btn:hover,
+.part > a:hover,
+.car > a:hover,
+.bike > a:hover,
+.news > a:hover,
+.part > a:focus,
+.car > a:focus,
+.bike > a:focus,
+.news > a:focus {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5);
+    text-decoration: none;
+}
+
+a.inquire-btn:active,
+.part > a:active,
+.car > a:active,
+.bike > a:active,
+.news > a:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+/* Vehicle Card View Details Button */
+.vehicle-card .view-details-btn,
+a.view-details-btn,
+a.view-details-btn:link,
+a.view-details-btn:visited {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #e94560 0%, #c23a51 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.vehicle-card .view-details-btn:hover,
+a.view-details-btn:hover,
+a.view-details-btn:focus {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5);
+    text-decoration: none;
+}
+
+/* Read More Button */
+a.read-more-btn,
+a.read-more-btn:link,
+a.read-more-btn:visited {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 15px 20px 20px;
+    background: transparent;
+    color: #e94560 !important;
+    text-decoration: none;
+    border: 2px solid #e94560;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+a.read-more-btn:hover,
+a.read-more-btn:focus {
+    background: #e94560;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+    text-decoration: none;
+}
+
+/* Part Card Styles */
+.part {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.part:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+    border-color: #e94560;
+}
+
+.part-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.part-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.part:hover .part-image img {
+    transform: scale(1.08);
+}
+
+.part h2 {
+    margin: 20px 20px 10px;
+    font-size: 1.3rem;
+    color: #e94560;
+    font-weight: 600;
+}
+
+.part .part-category {
+    margin: 0 20px;
+    padding: 5px 14px;
+    background: rgba(233, 69, 96, 0.15);
+    color: #e94560;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.part > p:not(.part-category):not(.price) {
+    margin: 15px 20px;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.part .price {
+    margin: 12px 20px;
+    color: #4ecca3;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.part-brands {
+    margin: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.brand-tag {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+    font-weight: 500;
+}
+
+/* Car/Bike Card Styles in Listings */
+.car,
+.bike {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.car:hover,
+.bike:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+    border-color: #e94560;
+}
+
+.car img,
+.bike img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.car:hover img,
+.bike:hover img {
+    transform: scale(1.08);
+}
+
+.car h2,
+.bike h2 {
+    margin: 20px 20px 10px;
+    font-size: 1.3rem;
+    color: #e94560;
+    font-weight: 600;
+}
+
+.car p,
+.bike p {
+    margin: 0 20px 10px;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.car .price,
+.bike .price {
+    margin: 12px 20px;
+    color: #4ecca3;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* News Card Styles in Listings */
+.news {
+    background: linear-gradient(145deg, #1f1f3a 0%, #252547 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.news:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+    border-color: #e94560;
+}
+
+.news img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news:hover img {
+    transform: scale(1.08);
+}
+
+.news h2 {
+    margin: 20px 20px 10px;
+    font-size: 1.2rem;
+    color: #4ecca3;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.news .date {
+    margin: 0 20px;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.news > p:not(.date) {
+    margin: 12px 20px;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    a.inquire-btn,
+    .part > a,
+    .car > a,
+    .bike > a,
+    .news > a {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+        margin: 12px 15px 15px;
+    }
+    
+    .vehicle-card .view-details-btn,
+    a.view-details-btn {
+        width: calc(100% - 30px);
+        margin: 0 15px 15px;
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+    
+    a.read-more-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        margin: 12px 15px 15px;
+    }
 }
 
 /* Scrollbar Styles */
