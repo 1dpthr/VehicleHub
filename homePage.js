@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const type = document.getElementById('searchType').value;
             
             if (type === 'cars' || type === 'all') {
-                window.location.href = 'homePage.html?search=' + encodeURIComponent(query);
+                window.location.href = 'index.html?search=' + encodeURIComponent(query);
             } else if (type === 'bikes') {
                 window.location.href = 'Bikes.html?search=' + encodeURIComponent(query);
             } else {

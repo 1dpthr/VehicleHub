@@ -54,12 +54,20 @@ async function handleLogin(event) {
         return false;
     }
     
+    // Try server API first, fallback to localStorage
     try {
+        // Create AbortController for timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        
         const response = await fetch('http://localhost:3000/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password }),
+            signal: controller.signal
         });
+        
+        clearTimeout(timeoutId);
         
         const data = await response.json();
         
@@ -79,11 +87,17 @@ async function handleLogin(event) {
                     window.location.href = 'dashboard.html';
                 }, 1500);
             }
+            return false;
         } else {
             showNotification(data.message, 'error');
         }
     } catch (error) {
-        console.log('MongoDB not available, using localStorage');
+        // Server not available - use localStorage fallback
+        // Silently handle network errors
+        if (error.name !== 'AbortError' && error.name !== 'TypeError') {
+            console.warn('Server connection failed, using local storage');
+        }
+        
         const success = UserAuth.login(email, password);
         
         if (success) {

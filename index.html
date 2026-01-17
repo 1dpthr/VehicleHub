@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars for Sale - VehicleHub</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="inquiry.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="index.html">Cars for Sale</a></li>
+            <li><a href="Bikes.html">Bike for Sale</a></li>
+            <li><a href="SpareParts.html">Spare Parts</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li id="userSection">
+                <a href="login.html">Login</a>
+            </li>
+            <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Find Your Perfect Vehicle</h1>
+            <p>Browse thousands of cars, bikes, and spare parts</p>
+            <form id="searchForm" class="search-box">
+                <input type="text" id="searchInput" placeholder="Search cars, bikes, parts...">
+                <select id="searchType">
+                    <option value="all">All</option>
+                    <option value="cars">Cars</option>
+                    <option value="bikes">Bikes</option>
+                    <option value="parts">Parts</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <!-- Featured Cars -->
+        <section class="cars-section">
+            <h2>Featured Cars</h2>
+            <div class="vehicle-grid" id="featuredCars"></div>
+            <a href="index.html" class="view-all-btn">View All Cars</a>
+        </section>
+
+        <!-- Featured Bikes -->
+        <section class="bikes-section">
+            <h2>Featured Bikes</h2>
+            <div class="vehicle-grid" id="featuredBikes"></div>
+            <a href="Bikes.html" class="view-all-btn">View All Bikes</a>
+        </section>
+
+        <!-- Latest News -->
+        <section class="news-section">
+            <h2>Latest News</h2>
+            <div class="news-grid" id="latestNews"></div>
+            <a href="News.html" class="view-all-btn">View All News</a>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <h2>Browse Categories</h2>
+            <div class="category-grid">
+                <a href="index.html" class="category-card">
+                    <span class="category-icon">🚗</span>
+                    <span>Cars</span>
+                </a>
+                <a href="Bikes.html" class="category-card">
+                    <span class="category-icon">🏍️</span>
+                    <span>Bikes</span>
+                </a>
+                <a href="SpareParts.html" class="category-card">
+                    <span class="category-icon">🔧</span>
+                    <span>Spare Parts</span>
+                </a>
+                <a href="sell-vehicle.html" class="category-card">
+                    <span class="category-icon">💰</span>
+                    <span>Sell Your Vehicle</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 VehicleHub - Your Trusted Car Marketplace</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="homePage.js"></script>
+</body>
+</html>

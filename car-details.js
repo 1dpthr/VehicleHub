@@ -81,9 +81,12 @@ const carDetailsData = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get car ID from filename
+    // Get car ID from filename - works with GitHub Pages paths
     const path = window.location.pathname;
-    const carId = Object.keys(carDetailsData).find(id => path.includes(`car-details-${id}.html`));
+    const filename = path.split('/').pop(); // Get filename from path
+    const carId = Object.keys(carDetailsData).find(id => 
+        filename === `car-details-${id}.html` || path.includes(`car-details-${id}.html`)
+    );
     
     if (carId && carDetailsData[carId]) {
         renderCarDetails(carDetailsData[carId]);

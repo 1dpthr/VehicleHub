@@ -798,7 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const query = document.getElementById('searchInput').value;
-            window.location.href = `homePage.html?search=${encodeURIComponent(query)}`;
+            window.location.href = `index.html?search=${encodeURIComponent(query)}`;
         });
     }
     
