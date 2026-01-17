@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     if (UserAuth.currentUser || localStorage.getItem('vehiclehub_currentUser')) {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'homePage.html';
     }
 });
 
@@ -46,7 +46,7 @@ async function handleSignup(event) {
             localStorage.setItem('vehiclehub_currentUser', JSON.stringify(data.user));
             showNotification('Account created successfully!');
             setTimeout(() => {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'homePage.html';
             }, 1500);
             return false;
         } else {
@@ -63,7 +63,7 @@ async function handleSignup(event) {
         
         if (success) {
             setTimeout(() => {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'homePage.html';
             }, 1500);
         }
     }

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (currentUser) {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'homePage.html';
         return;
     }
 });
@@ -84,7 +84,7 @@ async function handleLogin(event) {
             } else {
                 showNotification('Welcome back, ' + data.user.username + '!');
                 setTimeout(() => {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'homePage.html';
                 }, 1500);
             }
             return false;
@@ -102,7 +102,7 @@ async function handleLogin(event) {
         
         if (success) {
             setTimeout(() => {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'homePage.html';
             }, 1500);
         }
     }
